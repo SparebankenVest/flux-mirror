@@ -103,10 +103,8 @@ Global flags: `--timeout` sets the default operation timeout, and `--no-envsubst
 ### Text mode (default)
 
 ```
-✓ ghcr.io/stefanprodan/charts/podinfo:6.10.2 (skipped)
-→ localhost:5050/charts/podinfo:6.10.2
-✓ ghcr.io/stefanprodan/charts/podinfo:6.11.0 (copied)
-→ localhost:5050/charts/podinfo:6.11.0
+✓ ghcr.io/stefanprodan/charts/podinfo:6.10.2 (skipped) → localhost:5050/charts/podinfo:6.10.2
+✓ ghcr.io/stefanprodan/charts/podinfo:6.11.0 (copied) → localhost:5050/charts/podinfo:6.11.0
 ✗ ghcr.io/stefanprodan/charts/podinfo2 — plan failed: NAME_UNKNOWN
 Summary: 1 copied, 1 skipped, 1 failed in 4.2s.
 ```

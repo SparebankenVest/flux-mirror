@@ -50,16 +50,18 @@ func (p *progress) JobFinished(entry, id, dst string, st apiv1.Status, err error
 	p.mu.Lock()
 	defer p.mu.Unlock()
 	if err != nil {
-		p.emitLocked("✗ %s:%s — %v\n", entry, id, err)
 		if dst != "" {
-			p.emitLocked("→ %s\n", dst)
+			p.emitLocked("✗ %s:%s → %s — %v\n", entry, id, dst, err)
+		} else {
+			p.emitLocked("✗ %s:%s — %v\n", entry, id, err)
 		}
 		return
 	}
-	p.emitLocked("✓ %s:%s (%s)\n", entry, id, st)
 	if dst != "" {
-		p.emitLocked("→ %s\n", dst)
+		p.emitLocked("✓ %s:%s (%s) → %s\n", entry, id, st, dst)
+		return
 	}
+	p.emitLocked("✓ %s:%s (%s)\n", entry, id, st)
 }
 
 // EntryFinished is the OnEntryFinished hook for sync.Runner. Called once
